@@ -46,10 +46,7 @@ git clone https://github.com/1tico1/WinkS.git
 ## 📈 Diagrama
 
 <div>
-    <img src="./DiagramJava/ResourcesDiagram.png" alt="Diagrama de classes" height="400px"/>
-</div>
-<div>
-    <img src="./DiagramJava/EntityDiagram.png" alt="Diagrama de classes" height="400px"/>
+    <img src="./Diagramas/EntityDiagram.png" alt="Diagrama de classes" height="400px"/>
 </div>
 
 
