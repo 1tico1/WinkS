@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Formulário de Pagamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 th:text="${title}">Adicionar/Editar Pagamento</h2>
+        <form th:action="@{/pagamento/save}" th:object="${pagamento}" method="post">
+            <input type="hidden" th:field="*{pagamento_id}"/>
+
+            <label for="pagamento_metodo">Método de Pagamento:</label>
+            <select id="pagamento_metodo" th:field="*{pagamento_metodo}" required>
+                <option value="" th:text="'Selecione um método'">Selecione um método</option>
+                <option value="Cartão de Crédito" th:text="'Cartão de Crédito'">Cartão de Crédito</option>
+                <option value="Boleto" th:text="'Boleto'">Boleto</option>
+                <option value="Transferência" th:text="'Transferência'">Transferência</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+
+            <label for="pagamento_vlr_total">Valor Total:</label>
+            <input type="number" id="pagamento_vlr_total" th:field="*{pagamento_vlr_total}" placeholder="Valor Total" step="0.01" min="0" required/>
+
+            <input type="submit" value="Salvar"/>
+        </form>
+        <a class="back-link" href="/pagamento/list">Voltar para a Lista</a>
+    </div>
+</body>
+</html>
