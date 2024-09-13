@@ -48,6 +48,9 @@ git clone https://github.com/1tico1/WinkS.git
 <div>
     <img src="./Diagramas/EntityDiagram.png" alt="Diagrama de classes" height="400px"/>
 </div>
+<div>
+    <img src="./Diagramas/Controller.png" alt="Diagrama de classes" height="400px"/>
+</div>
 
 
 <br/>
